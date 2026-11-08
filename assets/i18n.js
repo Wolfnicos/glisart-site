@@ -19,7 +19,7 @@ window.I18N = {
     gal_eyebrow: "Inspiration", gal_t: "Du nude discret<br>au <em>glamour</em> assumé.",
     p_eyebrow: "Nos engagements", p_t: "Élégante, et <em>honnête</em>.",
     c1_t: "Votre photo n’est pas conservée", c1_p: "Elle sert à l’essai, puis elle est oubliée par nos serveurs. Vos looks restent sur votre téléphone.",
-    c2_t: "IA traitée en Europe", c2_p: "Le rendu passe par Google Vertex AI, point d’accès européen, sans entraînement sur vos photos.",
+    c2_t: "Photos non conservées", c2_p: "Vos photos passent par Google Vertex AI le temps de la demande, sans entraînement sur vos photos, et ne sont pas gardées sur nos serveurs.",
     c3_t: "Sans abonnement", c3_p: "Des crédits, seulement si vous voulez davantage d’essais. Un essai raté ne vous coûte rien.",
     disclaimer: "Chaque rendu est une simulation générée par IA et porte la mention « Image modifiée par IA ». Le résultat réel en salon peut différer.",
     f_privacy: "Confidentialité", f_terms: "Conditions", f_support: "Aide", f_delete: "Supprimer mes données", f_credits: "Crédits photos"
@@ -42,7 +42,7 @@ window.I18N = {
     gal_eyebrow: "Inspiration", gal_t: "From quiet nude<br>to full <em>glamour</em>.",
     p_eyebrow: "Our promises", p_t: "Elegant, and <em>honest</em>.",
     c1_t: "Your photo is not kept", c1_p: "It is used for the try-on, then forgotten by our servers. Your looks stay on your phone.",
-    c2_t: "AI processed in Europe", c2_p: "Rendering goes through Google Vertex AI’s European endpoint, with no training on your photos.",
+    c2_t: "Photos not kept", c2_p: "Your photos go through Google Vertex AI only for your request, with no training on your photos, and are not kept on our servers.",
     c3_t: "No subscription", c3_p: "Credits, only if you want more try-ons. A failed try-on costs you nothing.",
     disclaimer: "Every render is an AI-generated simulation labelled “AI-edited image”. The real salon result may differ.",
     f_privacy: "Privacy", f_terms: "Terms", f_support: "Help", f_delete: "Delete my data", f_credits: "Photo credits"
@@ -65,7 +65,7 @@ window.I18N = {
     gal_eyebrow: "Inspirație", gal_t: "De la nude discret<br>la <em>glamour</em> total.",
     p_eyebrow: "Angajamentele noastre", p_t: "Elegantă și <em>onestă</em>.",
     c1_t: "Poza ta nu se păstrează", c1_p: "E folosită pentru probă, apoi uitată de serverele noastre. Look-urile rămân pe telefonul tău.",
-    c2_t: "AI procesat în Europa", c2_p: "Imaginea trece prin punctul european Google Vertex AI, fără antrenare pe pozele tale.",
+    c2_t: "Poze nepăstrate", c2_p: "Pozele tale trec prin Google Vertex AI doar pentru cererea ta, fără antrenare pe ele, și nu sunt păstrate pe serverele noastre.",
     c3_t: "Fără abonament", c3_p: "Credite, doar dacă vrei mai multe probe. O probă eșuată nu te costă nimic.",
     disclaimer: "Fiecare rezultat e o simulare generată de AI și poartă mențiunea „Imagine modificată cu AI”. Rezultatul real la salon poate diferi.",
     f_privacy: "Confidențialitate", f_terms: "Condiții", f_support: "Ajutor", f_delete: "Șterge-mi datele", f_credits: "Credite foto"
@@ -88,7 +88,7 @@ window.I18N = {
     gal_eyebrow: "Inspiration", gal_t: "Vom dezenten Nude<br>bis zum vollen <em>Glamour</em>.",
     p_eyebrow: "Unsere Versprechen", p_t: "Elegant und <em>ehrlich</em>.",
     c1_t: "Dein Foto wird nicht gespeichert", c1_p: "Es dient nur der Anprobe und wird danach von unseren Servern vergessen. Deine Looks bleiben auf deinem Handy.",
-    c2_t: "KI-Verarbeitung in Europa", c2_p: "Das Rendering läuft über den europäischen Endpunkt von Google Vertex AI, ohne Training mit deinen Fotos.",
+    c2_t: "Fotos werden nicht gespeichert", c2_p: "Deine Fotos laufen nur für deine Anfrage über Google Vertex AI, ohne Training damit, und werden auf unseren Servern nicht gespeichert.",
     c3_t: "Kein Abo", c3_p: "Credits, nur wenn du mehr Anproben willst. Eine fehlgeschlagene Anprobe kostet dich nichts.",
     disclaimer: "Jedes Ergebnis ist eine KI-generierte Simulation mit dem Hinweis „Mit KI bearbeitetes Bild“. Das echte Ergebnis im Studio kann abweichen.",
     f_privacy: "Datenschutz", f_terms: "Bedingungen", f_support: "Hilfe", f_delete: "Meine Daten löschen", f_credits: "Bildnachweise"
@@ -111,7 +111,7 @@ window.I18N = {
     gal_eyebrow: "Inspiración", gal_t: "Del nude discreto<br>al <em>glamour</em> total.",
     p_eyebrow: "Nuestros compromisos", p_t: "Elegante y <em>honesta</em>.",
     c1_t: "Tu foto no se guarda", c1_p: "Sirve para la prueba y después nuestros servidores la olvidan. Tus looks se quedan en tu móvil.",
-    c2_t: "IA procesada en Europa", c2_p: "El render pasa por el punto de acceso europeo de Google Vertex AI, sin entrenar con tus fotos.",
+    c2_t: "Fotos no guardadas", c2_p: "Tus fotos pasan por Google Vertex AI solo para tu solicitud, sin entrenar con ellas, y no se guardan en nuestros servidores.",
     c3_t: "Sin suscripción", c3_p: "Créditos, solo si quieres más pruebas. Una prueba fallida no te cuesta nada.",
     disclaimer: "Cada resultado es una simulación generada por IA con la mención «Imagen modificada con IA». El resultado real en el salón puede variar.",
     f_privacy: "Privacidad", f_terms: "Condiciones", f_support: "Ayuda", f_delete: "Borrar mis datos", f_credits: "Créditos fotográficos"
@@ -134,7 +134,7 @@ window.I18N = {
     gal_eyebrow: "Ispirazione", gal_t: "Dal nude discreto<br>al <em>glamour</em> pieno.",
     p_eyebrow: "I nostri impegni", p_t: "Elegante e <em>onesta</em>.",
     c1_t: "La tua foto non viene conservata", c1_p: "Serve per la prova, poi i nostri server la dimenticano. I tuoi look restano sul telefono.",
-    c2_t: "IA elaborata in Europa", c2_p: "Il rendering passa dall’endpoint europeo di Google Vertex AI, senza addestramento sulle tue foto.",
+    c2_t: "Foto non conservate", c2_p: "Le tue foto passano da Google Vertex AI solo per la tua richiesta, senza addestramento, e non vengono conservate sui nostri server.",
     c3_t: "Nessun abbonamento", c3_p: "Crediti, solo se vuoi più prove. Una prova non riuscita non ti costa nulla.",
     disclaimer: "Ogni risultato è una simulazione generata dall’IA con la dicitura «Immagine modificata con IA». Il risultato reale in salone può differire.",
     f_privacy: "Privacy", f_terms: "Condizioni", f_support: "Aiuto", f_delete: "Elimina i miei dati", f_credits: "Crediti foto"
