@@ -26,7 +26,7 @@
 <main id="main" class="wrap doc">
 <p class="eyebrow">Glisart</p>
 <h1>Politique de <em>confidentialité</em></h1>
-<p class="muted updated">Dernière mise à jour : 8 novembre 2026 (Habille-moi, Mes ongles ma tenue, crédits, traitement par l’infrastructure mondiale de Google)</p>
+<p class="muted updated">Dernière mise à jour : 10 novembre 2026 (achats de crédits, âge minimum) · <a href="en/privacy.html" lang="en">English</a></p>
 
 <div class="box glass">
 <p><strong>L’essentiel.</strong> Vos photos (main, tenue, ongles, vous en pied pour « Habille-moi ») servent uniquement à la fonction que vous utilisez : elles ne sont pas conservées sur nos serveurs. Les images et les conseils sont produits par Google Vertex AI, qui peut traiter les requêtes sur son infrastructure mondiale (voir § 4). Vos looks restent sur votre téléphone. Pas de publicité, pas de revente, pas de traceur publicitaire.</p>
@@ -50,10 +50,11 @@
 <tr><td>Identifiants techniques : compte anonyme, appareil, clé publique de vérification de l’appareil (Apple App Attest), jetons de session (stockés uniquement sous forme d’empreinte, par hachage)</td><td>Notre serveur</td><td>Tant que le compte existe ; révoqués dès la suppression</td></tr>
 <tr><td>Historique de consommation des essais (date, statut, coût estimé)</td><td>Notre serveur</td><td>Rendu anonyme dès la suppression du compte (le lien avec votre compte est effacé)</td></tr>
 <tr><td>Adresse IP</td><td>Notre serveur, pour limiter les abus</td><td>En mémoire, fenêtre de 10 minutes</td></tr>
+<tr><td>Achats de crédits : identifiant de la transaction Apple, nombre de crédits ajoutés, date, environnement (réel ou test), remboursement éventuel</td><td>Notre serveur, liés à votre compte. Apple nous transmet la transaction signée et ses notifications (achat, remboursement). Nous ne recevons jamais vos coordonnées bancaires.</td><td>Tant que le compte existe ; le lien avec votre compte est effacé à sa suppression</td></tr>
 <tr><td>Compte Apple ou Google (facultatif, utile pour acheter des crédits et les retrouver sur un autre téléphone)</td><td>Notre serveur : uniquement une empreinte (hachage) de l’identifiant fourni par Apple ou Google. Aucune adresse e-mail, aucun nom.</td><td>Tant que le compte existe ; effacée à la suppression du compte, et l’accès est révoqué auprès d’Apple</td></tr>
 <tr><td>Signalement d’un rendu (« Signaler ce rendu »)</td><td>Notre serveur : l’identifiant de l’essai et un motif choisi dans une liste, jamais la photo ni un texte</td><td>Rendu anonyme à la suppression du compte</td></tr>
 <tr><td>Statistiques anonymes (nombre d’essais et de photos vérifiées par jour, styles essayés, ex. « french · nude · brillant »)</td><td>Notre serveur, compteurs agrégés sans lien avec un compte ou un appareil, ni texte</td><td>Conservées pour améliorer le service</td></tr>
-<tr><td>Looks enregistrés (photo d’origine + rendu), favoris, réglages</td><td>Uniquement sur votre téléphone</td><td>Jusqu’à ce que vous les supprimiez ou désinstalliez l’app</td></tr>
+<tr><td>Looks enregistrés (photo d’origine + rendu), favoris, réglages</td><td>Uniquement sur votre téléphone (exclus des sauvegardes iCloud)</td><td>Jusqu’à ce que vous les supprimiez ou désinstalliez l’app</td></tr>
 </table>
 <p>Glisart ne demande ni votre nom, ni votre e-mail, ni votre position (même avec un compte Apple ou Google). L’application ne contient aucun SDK publicitaire ni outil de mesure d’audience.</p>
 
@@ -62,7 +63,7 @@
 <li><strong>Réaliser l’essai ou le conseil Glisart Stylist que vous demandez</strong> : exécution du service et <strong>consentement explicite</strong> recueilli avant le premier envoi d’une photo. Vous pouvez le retirer à tout moment : Réglages › « Retirer mon accord ».</li>
 <li><strong>Réserver « Habille-moi » aux adultes</strong> : la photo est vérifiée (une seule personne, d’apparence majeure) avant toute image, et vous confirmez être la personne photographiée ou avoir son accord.</li>
 <li><strong>Prévenir la fraude et les abus</strong> (vérification de l’appareil, limites par appareil et par IP) : intérêt légitime.</li>
-<li><strong>Achats de crédits</strong>, lorsqu’ils seront proposés : exécution du contrat. Le paiement est traité par Apple (ou Google) ; nous ne recevons jamais vos coordonnées bancaires.</li>
+<li><strong>Achats de crédits</strong> : exécution du contrat (ajout des crédits, retrait en cas de remboursement). Le paiement est traité par Apple (ou Google) ; nous ne recevons jamais vos coordonnées bancaires.</li>
 </ul>
 
 <h2>4. Google Vertex AI</h2>
@@ -72,7 +73,8 @@
 <ul>
 <li><strong>Hetzner Online GmbH</strong> (Allemagne) : serveur à Helsinki (Finlande, UE) ; sauvegardes chiffrées à Falkenstein (Allemagne, UE), conservées 30 jours au maximum.</li>
 <li><strong>Google Cloud EMEA Limited</strong> (Irlande) : IA (Vertex AI), traitement possible sur l’infrastructure mondiale de Google.</li>
-<li><strong>Apple</strong> : vérification de l’authenticité de l’appareil (App Attest) et, plus tard, paiements intégrés.</li>
+<li><strong>Apple</strong> : vérification de l’authenticité de l’appareil (App Attest), « Se connecter avec Apple » (facultatif) et paiements intégrés.</li>
+<li><strong>Google</strong> : « Se connecter avec Google » (facultatif).</li>
 <li><strong>GitHub, Inc.</strong> (GitHub Pages) : hébergement de ce site web. Le site n’utilise ni cookie ni mesure d’audience.</li>
 </ul>
 
@@ -88,7 +90,10 @@
 <h2>7. Contenus générés par IA</h2>
 <p>Chaque rendu porte la mention « Image modifiée par IA ». Il s’agit d’une simulation : le résultat réel en salon peut différer. Vous pouvez signaler un rendu inapproprié dans l’application (« Signaler ce rendu ») ou à <a href="mailto:support@glisart.com">support@glisart.com</a>.</p>
 
-<h2>8. Modifications</h2>
+<h2>8. Âge minimum</h2>
+<p>Glisart est destiné aux personnes de 16 ans et plus ; « Habille-moi » est réservé aux personnes majeures. Nous ne collectons pas sciemment de données concernant des enfants. Si vous pensez qu’un mineur de moins de 16 ans utilise Glisart, écrivez à <a href="mailto:support@glisart.com">support@glisart.com</a> : nous supprimerons le compte.</p>
+
+<h2>9. Modifications</h2>
 <p>En cas de changement important, l’application vous en informera avant tout nouvel envoi de photo.</p>
 </main>
 <footer>
