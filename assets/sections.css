@@ -1,0 +1,193 @@
+/* Concept C · the page below the hero. Same atelier language: title overhead, the result in the middle, tools around.
+   ONE system, taken from the approved hero:
+   type    display = the hero title size · name 19px serif · body 15px · small 13px · fine 12px · micro 10px caps
+   control one chip (14px corners, glass, hairline border; selected = pearl border + light fill), as in the hero's lacquer list
+   shape   photos and cards 16px corners · hairline borders var(--line)
+   colour  obsidian + pearl; rose only for italic emphasis and "réel"; bordeaux only for switches, glow and focus */
+:root { --t-display: clamp(30px, 4.1vw, 68px); --t-name: 19px; --t-title: clamp(22px, 2vw, 28px); --t-body: 15px; --t-small: 13px; --t-fine: 12px; --r-card: 16px; --r-chip: 14px; --glass: #0c0a0ec7; }
+.sec { position: relative; z-index: 5; background: var(--obsidian); padding: clamp(64px, 6.4vw, 104px) var(--gutter) clamp(36px, 3.6vw, 60px); overflow: hidden; }
+.sec.tint { background: linear-gradient(#0c0a0e, #15101a 30%, #15101a 70%, #0c0a0e); }
+.sec-head { display: grid; justify-items: center; gap: 12px; text-align: center; max-width: 52em; margin: 0 auto clamp(24px, 2.6vw, 40px); }
+.sec-head h2, .final h2 { font: 400 var(--t-display)/1.04 var(--serif); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+.sec-head .lead { max-width: 36em; color: #d3cfd6; font-size: var(--t-body); }
+h3 { font: 400 var(--t-title)/1.2 var(--serif); margin: 0; }
+.gl { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.flat .gl { display: none; }
+.q { font: italic 400 var(--t-name)/1.35 var(--serif); margin: 0; }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px #ffffff40; flex: none; }
+
+/* ── Before / after (same engine as V1: a real range input drives --pos) ── */
+.cmp { --pos: 50; position: relative; margin: 0; aspect-ratio: 3 / 4; overflow: hidden; background: #111; border-radius: var(--r-card); box-shadow: 0 0 0 1px var(--line), 0 50px 110px -40px #000; isolation: isolate; }
+.cmp img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; transition: opacity .5s var(--ease); }
+.cmp .before { clip-path: inset(0 calc(100% - var(--pos) * 1%) 0 0); }
+.cmp.swapping img { opacity: 0; }
+.cmp .line { position: absolute; top: 0; bottom: 0; left: calc(var(--pos) * 1%); width: 1px; background: var(--pearl); box-shadow: 0 0 18px 1px #f5f2ee80, 0 0 40px 6px #72263c66; pointer-events: none; }
+.cmp .line i { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; margin: -22px; border-radius: 50%; background: var(--pearl); box-shadow: 0 6px 24px #0008; }
+.cmp .line i::before, .cmp .line i::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; border: solid var(--obsidian); border-width: 1.5px 1.5px 0 0; }
+.cmp .line i::before { left: 11px; transform: translateY(-50%) rotate(-135deg); }
+.cmp .line i::after { right: 11px; transform: translateY(-50%) rotate(45deg); }
+.cmp .tagl { position: absolute; top: 14px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; padding: 7px 11px; background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: var(--r-chip); pointer-events: none; transition: opacity .2s; }
+.cmp .tagl.a { left: 14px; } .cmp .tagl.b { right: 14px; }
+.cmp input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; -webkit-appearance: none; appearance: none; }
+.cmp input::-webkit-slider-thumb { -webkit-appearance: none; width: 2px; height: 100vh; }
+.cmp input::-moz-range-thumb { width: 2px; height: 100vh; border: 0; }
+.cmp:focus-within { box-shadow: 0 0 0 2px var(--pearl), 0 50px 110px -40px #000; }
+.cmp:focus-within .line i { box-shadow: 0 0 0 4px var(--bordeaux); }
+
+/* The one control of the page: identical to the hero's lacquer chips. */
+.pill { display: inline-grid; grid-auto-flow: column; grid-template-rows: auto auto; column-gap: 8px; align-items: center; text-align: left; min-height: 44px; padding: 7px 14px 7px 9px; border: 1px solid var(--line); border-radius: var(--r-chip); background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); font-size: 12px; white-space: nowrap; transition: border-color .2s, background .2s; }
+.pill > i { grid-row: span 2; }
+.pill:not(:has(i)) { padding-left: 14px; }
+.pill:not(:has(small)) { grid-template-rows: auto; }
+.pill:hover { border-color: var(--pearl); }
+.pill[aria-pressed="true"] { border-color: var(--pearl); background: #f5f2ee1f; }
+.pill small { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--silver); }
+
+/* ── 01 Atelier ongles ── */
+.lab-stage { position: relative; height: min(80svh, 760px); min-height: 540px; max-width: 1380px; margin: 0 auto; }
+.lab-stage .cmp { position: absolute; left: 50%; top: 0; height: 74%; transform: translateX(-50%); z-index: 1; }
+.lab-stage .gl { z-index: 2; }
+.fin-info { position: absolute; z-index: 3; left: 0; top: 16%; width: min(22vw, 300px); display: grid; gap: 10px; }
+.fin-info h3 { font-size: var(--t-title); }
+.fin-info p { margin: 0; color: #d3cfd6; font-size: var(--t-body); }
+.fin-info .micro.real { color: var(--rose); }
+.finishes { position: absolute; z-index: 3; right: 0; top: 16%; display: grid; gap: 8px; justify-items: end; }
+.finishes .pill i { width: 20px; height: 28px; border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%; background: linear-gradient(115deg, #ffffff66, transparent 40%), var(--c); }
+.flow { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; max-width: 1380px; margin: 12px auto 0; padding: 0; border-top: 1px solid var(--line); }
+.flow li { counter-increment: s; padding: 20px 18px 0 0; font-size: var(--t-small); color: var(--silver); }
+.flow li + li { padding-left: 18px; border-left: 1px solid var(--line); }
+.flow li::before { content: "0" counter(s); display: block; font: 400 var(--t-name) var(--serif); color: var(--rose); margin-bottom: 6px; }
+.flow b { display: block; font-weight: 500; font-size: var(--t-body); color: var(--pearl); margin-bottom: 2px; }
+
+/* ── 02 Habille-moi ── */
+.studio-stage { position: relative; height: min(78svh, 740px); min-height: 540px; max-width: 1380px; margin: 0 auto; }
+.studio-stage .cmp { position: absolute; left: 40%; top: 0; height: 100%; transform: translateX(-50%); z-index: 1; }
+.studio-stage .gl { z-index: 2; }
+.studio-side { position: absolute; z-index: 3; left: 0; top: 10%; width: min(18vw, 250px); display: grid; gap: 16px; }
+.looks { display: grid; gap: 8px; justify-items: start; }
+.sheet h3 { font-size: var(--t-title); margin-bottom: 8px; }
+.pieces { list-style: none; margin: 0; padding: 0; }
+.pieces li { display: flex; align-items: center; gap: 10px; font-size: var(--t-small); white-space: nowrap; }
+.pieces li small { color: var(--silver); font-size: var(--t-fine); }
+/* desktop: each piece label is pinned beside its floating 3D swatch (positions come from the scene) */
+.studio-stage.pinned .pieces li { position: absolute; z-index: 3; left: 0; top: 0; padding: 8px 14px 8px 10px; border: 1px solid var(--line); border-radius: var(--r-chip); background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); will-change: transform; transition: opacity .35s; }
+.studio-stage.pinned.changing .pieces li { opacity: 0; }
+.studio-stage:not(.pinned) .pieces { display: grid; gap: 8px; margin-top: 10px; }
+.fine { font-size: var(--t-fine); letter-spacing: .03em; color: var(--silver); margin: 0; }
+
+/* ── 03 L’accord ── */
+.modes { display: flex; justify-content: center; gap: 8px; margin-bottom: clamp(20px, 2.4vw, 34px); flex-wrap: wrap; }
+.graph { position: relative; max-width: 1180px; margin: 0 auto; perspective: 1400px; }
+.plane { position: relative; display: grid; grid-template-columns: minmax(170px, 250px) 1fr minmax(280px, 400px); align-items: center; gap: clamp(40px, 8vw, 130px); transform: rotateX(calc(var(--ty, 0) * -3deg)) rotateY(calc(var(--tx, 0) * 4deg)); transform-style: preserve-3d; transition: transform .5s var(--ease); }
+.wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
+.wires path { fill: none; stroke: var(--silver); stroke-width: 1; opacity: .5; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s var(--ease), opacity .3s, stroke .3s, stroke-width .3s; }
+.graph.in .wires path { stroke-dashoffset: 0; }
+.graph.focus .wires path { opacity: .12; }
+.graph.focus .wires path.on { opacity: 1; stroke: var(--rose); stroke-width: 1.6; }
+.node { position: relative; z-index: 1; }
+.shot { margin: 0; }
+.shot img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-card); box-shadow: 0 0 0 1px var(--line), 0 40px 80px -30px #000; }
+.shot figcaption { margin-top: 10px; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--silver); }
+.mid { display: grid; gap: 14px; justify-items: start; }
+.mid .q { color: var(--silver); max-width: 16em; }
+.chip { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 7px 14px 7px 10px; border: 1px solid var(--line); border-radius: var(--r-chip); background: var(--glass); font-size: var(--t-small); transition: border-color .3s, opacity .3s; }
+.chip .dot { width: 18px; height: 18px; }
+.graph.focus .chip:not(.on) { opacity: .35; }
+.graph.focus .chip.on { border-color: var(--rose); }
+.props { display: grid; gap: 10px; }
+.prop { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; text-align: left; padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--glass); transition: border-color .3s, opacity .3s, transform .3s var(--ease); }
+.prop:hover, .prop.on { border-color: var(--rose); transform: translateX(-6px); }
+.graph.focus .prop:not(.on) { opacity: .4; }
+.prop small { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--silver); }
+.prop b { display: block; font: 400 var(--t-name) var(--serif); }
+.prop span { display: block; font-size: var(--t-small); color: var(--silver); white-space: normal; }
+.nail { width: 20px; height: 28px; border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%; background: linear-gradient(115deg, #ffffff59, transparent 38%), var(--c); box-shadow: inset 0 -6px 10px #0000002e; }
+.graph [hidden] { display: none !important; }
+.note { text-align: center; margin-top: 26px; }
+
+/* ── 04 Fiche salon ── */
+.salon { display: grid; grid-template-columns: 1fr minmax(300px, 460px); gap: clamp(32px, 6vw, 100px); align-items: center; max-width: 1180px; margin: 0 auto; perspective: 1400px; }
+.salon .sec-head { justify-items: start; text-align: left; margin: 0; }
+.fiche { background: #0a080c; border: 1px solid var(--line); padding: clamp(20px, 2.6vw, 30px); border-radius: var(--r-card); box-shadow: 0 60px 120px -50px #000, 0 0 90px -40px #72263c; transform: rotateX(calc(var(--ty, 0) * -5deg)) rotateY(calc(var(--tx, 0) * 7deg - 6deg)); transition: transform .5s var(--ease); }
+.fiche header { display: flex; gap: 18px; align-items: center; }
+.fiche header img { width: 92px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; }
+.fiche header small, .fiche dt { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--silver); }
+.fiche header h3 { font-size: var(--t-title); margin: 2px 0 6px; }
+.fiche header p { display: flex; align-items: center; gap: 9px; margin: 0; font-size: var(--t-small); color: #d3cfd6; }
+.fiche dl { margin: 20px 0; }
+.fiche dl div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); }
+.fiche dd { margin: 0; font-size: var(--t-body); text-align: right; }
+.pro { background: #17121999; border-radius: var(--r-chip); padding: 16px 18px; font-size: var(--t-small); color: #d3cfd6; }
+.pro b { display: block; font-weight: 500; color: var(--pearl); margin-bottom: 6px; }
+.pro p { margin: 4px 0 0; }
+.fiche footer { display: flex; gap: 10px; margin-top: 16px; }
+.fiche footer span { flex: 1; text-align: center; font-size: var(--t-fine); padding: 13px 8px; border: 1px solid var(--line); border-radius: var(--r-chip); }
+.fiche footer span:last-child { border-color: var(--pearl); background: #f5f2ee1f; }
+
+/* ── 05 Vie privée ── */
+.ledger { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1380px; margin: 0 auto; border-top: 1px solid rgba(245, 242, 238, .5); }
+.ledger div { padding: 26px 26px 26px 0; border-bottom: 1px solid var(--line); }
+.ledger div + div { padding-left: 26px; border-left: 1px solid var(--line); }
+.ledger small { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--rose); }
+.ledger p { margin: 12px 0 0; font-size: var(--t-body); color: #d3cfd6; }
+
+/* ── 06 Download + footer ── */
+.final { position: relative; z-index: 5; text-align: center; padding: clamp(84px, 8vw, 130px) var(--gutter); background: radial-gradient(60% 70% at 50% 100%, #72263c66, transparent), var(--obsidian); border-top: 1px solid var(--line); display: grid; justify-items: center; gap: 30px; }
+.final h2 { font-size: var(--t-display); }
+.final .badge img { height: 48px; }
+.foot2 { position: relative; z-index: 5; background: var(--obsidian); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; padding: 32px var(--gutter) 44px; border-top: 1px solid var(--line); }
+.foot2 nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.foot2 nav a { font-size: var(--t-small); text-decoration: none; color: #d3cfd6; padding: 6px 0; }
+.foot2 nav a:hover { color: var(--pearl); }
+.foot2 .langs { width: 100%; gap: 4px 16px; }
+.foot2 .langs a { font-size: var(--t-fine); color: var(--silver); }
+.foot2 .langs a[aria-current] { color: var(--pearl); }
+.foot2 p { width: 100%; margin: 0; font-size: var(--t-fine); color: var(--silver); }
+.foot2 .brand { margin-right: auto; }
+
+.js .rv { opacity: 0; transform: translateY(26px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+.js .rv.in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  :root { --t-display: min(9.6vw, 5.4svh); --t-title: 22px; }   /* same title size as the hero on phones */
+  .sec { padding-top: 76px; padding-bottom: 44px; }
+  .sec-head { margin-bottom: 26px; gap: 10px; }
+  .pill { font-size: 12px; }
+  /* 01 atelier: photo, the three visible samples under it, then name and lacquers */
+  .lab-stage { height: auto; min-height: 0; display: grid; gap: 16px; }
+  .lab-stage .cmp { position: relative; left: auto; top: auto; transform: none; height: auto; width: min(72vw, 320px); margin: 0 auto 104px; }
+  .lab-stage .gl { inset: 0 0 auto 0; height: calc(min(72vw, 320px) * 1.333 + 116px); }
+  .fin-info { position: static; width: auto; text-align: center; justify-items: center; gap: 6px; min-height: 108px; align-content: start; }
+  .finishes, .looks, .modes { position: static; display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 2px; scrollbar-width: none; }
+  .finishes::-webkit-scrollbar, .looks::-webkit-scrollbar, .modes::-webkit-scrollbar { display: none; }
+  .modes { margin-bottom: 24px; }
+  .flow { grid-template-columns: 1fr; margin-top: 26px; }
+  .flow li, .flow li + li { padding: 14px 0 14px 46px; border-left: 0; border-bottom: 1px solid var(--line); position: relative; }
+  .flow li::before { position: absolute; left: 0; top: 14px; margin: 0; }
+  /* 02 habille-moi: photo, outfits, name, then the fabric swatches each above its label */
+  .studio-stage { height: auto; min-height: 0; display: grid; gap: 16px; }
+  .studio-stage .cmp { position: relative; left: auto; top: auto; transform: none; height: auto; width: min(78vw, 350px); margin: 0 auto; order: 1; }
+  .studio-side { position: static; width: auto; order: 2; gap: 14px; text-align: center; }
+  .studio-side .fine { order: 9; }
+  .studio-stage .gl { position: relative; inset: auto; height: 132px; order: 3; margin-bottom: -8px; }
+  .studio-stage .pieces { order: 4; display: grid; grid-auto-flow: column; grid-auto-columns: 25%; justify-content: center; gap: 0; margin: 0; }
+  .studio-stage .pieces li { flex-direction: column; gap: 2px; text-align: center; white-space: normal; font-size: var(--t-fine); line-height: 1.25; }
+  .studio-stage .pieces .dot { display: none; }
+  /* 03 accord: a short fan of links from the photo to a row of chips, then one rail down the left to the proposals */
+  .plane { grid-template-columns: 1fr; gap: 40px; justify-items: center; transform: none; padding-left: 16px; }
+  .shot { width: min(52vw, 220px); }
+  .mid { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; text-align: center; }
+  .mid .micro, .mid .q { flex: 0 0 100%; max-width: none; }
+  .mid .q { order: 9; margin-top: 6px; }
+  .mid .micro, .mid .q, .shot figcaption { background: var(--obsidian); padding: 4px 0; }   /* links pass behind the words, never through them */
+  .props { width: 100%; }
+  .prop:hover, .prop.on { transform: none; }
+  .note { margin-top: 20px; }
+  /* 04–06 */
+  .salon { grid-template-columns: 1fr; gap: 28px; } .salon .sec-head { justify-items: center; text-align: center; } .fiche { transform: none; }
+  .ledger { grid-template-columns: 1fr; } .ledger div, .ledger div + div { border-left: 0; padding: 20px 0; }
+  .final { padding: 96px var(--gutter); gap: 22px; }
+  .foot2 { padding: 26px var(--gutter) 34px; } .foot2 .brand { width: 100%; }
+}
+.js .rv { opacity: 1; transform: none; transition: none; }
+.wires path { stroke-dashoffset: 0; }

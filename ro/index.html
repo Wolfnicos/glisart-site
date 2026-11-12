@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glisart · Unghii &amp; stilist AI — stilul tău, reinventat</title>
+<meta name="description" content="Probează o manichiură pe propria ta mână și vezi-te într-o ținută nouă. Glisart: unghii și stilist AI, pe iPhone.">
+<meta name="theme-color" content="#0c0a0e">
+<link rel="canonical" href="https://glisart.com/ro/">
+<link rel="alternate" hreflang="fr" href="https://glisart.com/">
+<link rel="alternate" hreflang="en" href="https://glisart.com/en/">
+<link rel="alternate" hreflang="ro" href="https://glisart.com/ro/">
+<link rel="alternate" hreflang="de" href="https://glisart.com/de/">
+<link rel="alternate" hreflang="es" href="https://glisart.com/es/">
+<link rel="alternate" hreflang="it" href="https://glisart.com/it/">
+<link rel="alternate" hreflang="x-default" href="https://glisart.com/">
+<meta property="og:title" content="Glisart · Stilul tău. Reinventat de AI.">
+<meta property="og:description" content="Probează o manichiură pe propria ta mână și vezi-te într-o ținută nouă. Glisart: unghii și stilist AI, pe iPhone.">
+<meta property="og:image" content="https://glisart.com/assets/demo/after_suit.webp">
+<meta property="og:image:width" content="896">
+<meta property="og:image:height" content="1200">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glisart.com/ro/">
+<meta property="og:site_name" content="Glisart">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6831685994">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"Glisart","alternateName":"Glisart: Ongles & Styliste IA","url":"https://glisart.com/","image":"https://glisart.com/assets/demo/after_suit.webp","description":"Probează o manichiură pe propria ta mână și vezi-te într-o ținută nouă. Glisart: unghii și stilist AI, pe iPhone.","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","installUrl":"https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
+</script>
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/BodoniModa-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="../assets/three.module.min.js?v=1794479584">
+<link rel="stylesheet" href="../assets/base.css?v=1794479584">
+<link rel="stylesheet" href="../assets/style.css?v=1794479584">
+<link rel="stylesheet" href="../assets/sections.css?v=1794479584">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./" aria-label="Glisart, acasă">GLISART</a>
+  <a class="get" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994">Descarcă</a>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="stage">
+      <div class="room" aria-hidden="true"></div>
+      <canvas id="scene" aria-hidden="true"></canvas>
+      <div class="fallback"><img src="../assets/demo/after_suit.webp" width="896" height="1200" alt="Rezultat real Îmbracă-mă: costum negru, imagine modificată cu AI"></div>
+
+      <h1 class="title">Stilul tău. <em>Reinventat</em> de AI.</h1>
+
+      <!-- The atelier's controls are real buttons: turn the ring, switch Avant / Après, pick a lacquer. -->
+      <div class="deck ui">
+        <button class="arrow" id="prev" type="button" aria-label="Rezultatul anterior">←</button>
+        <div class="now" aria-live="polite"><p class="micro" id="kind">Îmbracă-mă</p><p class="name" id="name">Costum negru</p></div>
+        <button class="arrow" id="next" type="button" aria-label="Rezultatul următor">→</button>
+        <button class="flip" id="flip" type="button" aria-pressed="true"><span>Înainte</span><i></i><span>După</span></button>
+      </div>
+      <div class="lab ui" role="group" aria-label="Lacurile atelierului">
+        <button type="button" data-s="0" data-result="after_nails" aria-pressed="false"><i style="--c:#6A1B2E"></i>Bordo magnetic<small>rezultat real</small></button>
+        <button type="button" data-s="1" data-result="after_nails2" aria-pressed="false"><i style="--c:#8A3B1E"></i>Teracota caldă<small>rezultat real</small></button>
+        <button type="button" data-s="2" aria-pressed="false"><i style="--c:#c9c9d2"></i>Crom<small>material</small></button>
+        <button type="button" data-s="3" aria-pressed="false"><i style="--c:#3a2a33"></i>Mat<small>material</small></button>
+        <button type="button" data-s="4" aria-pressed="false"><i style="--c:#d7b6c7"></i>Sidefat<small>material</small></button>
+      </div>
+
+      <div class="foot ui">
+        <p class="lead">Manichiură, modă și probă virtuală. Descoperă-ți următorul look cu Glisart.</p>
+        <div class="actions">
+          <a class="btn" href="#atelier">Descoperă Glisart</a>
+          <a class="badge" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994"><img src="../assets/app-store-ro.svg" width="127" height="40" alt="Descarcă din App Store"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 01 · ATELIER ONGLES -->
+  <section class="sec" id="atelier">
+    <header class="sec-head rv">
+      <p class="micro">01 — Atelier de unghii</p>
+      <h2>Cinci materiale.<br>Mâna <em>ta</em>.</h2>
+      <p class="lead">Fotografiază-ți mâna, descrie ce îți dorești: Glisart propune trei variante, apoi o arată pe cea aleasă pe propriile tale unghii.</p>
+    </header>
+    <div class="lab-stage">
+      <figure class="cmp" data-compare id="labcmp">
+        <img class="after" src="../assets/demo/after_nails.webp" srcset="../assets/demo/after_nails-480.webp 480w, ../assets/demo/after_nails.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Rezultat real: Bordo magnetic pe aceeași mână, imagine modificată cu AI">
+        <img class="before" src="../assets/demo/hand_a.webp" srcset="../assets/demo/hand_a-480.webp 480w, ../assets/demo/hand_a.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Înainte: mâna fotografiată, ojă prună">
+        <span class="line" aria-hidden="true"><i></i></span>
+        <span class="tagl a" aria-hidden="true">Înainte</span><span class="tagl b" aria-hidden="true">După</span>
+        <input type="range" min="0" max="100" value="38" step="0.1" aria-label="Compară înainte și după: manichiură">
+      </figure>
+      <canvas class="gl" id="labgl" aria-hidden="true"></canvas>
+      <div class="fin-info" aria-live="polite">
+        <p class="micro real" id="fin-kind">Rezultat real din aplicație</p>
+        <h3 id="fin-name">Bordo magnetic</h3>
+        <p id="fin-text">Exact ce ai cerut: un ochi de pisică profund și luminos.</p>
+      </div>
+      <div class="finishes" role="group" aria-label="Materialele atelierului">
+        <button class="pill" type="button" data-f="0" aria-pressed="true"><i style="--c:#6A1B2E"></i>Bordo magnetic<small>rezultat real</small></button>
+        <button class="pill" type="button" data-f="1" aria-pressed="false"><i style="--c:#8A3B1E"></i>Teracota caldă<small>rezultat real</small></button>
+        <button class="pill" type="button" data-f="2" aria-pressed="false"><i style="--c:#c9c9d2"></i>Crom<small>material</small></button>
+        <button class="pill" type="button" data-f="3" aria-pressed="false"><i style="--c:#3a2a33"></i>Mat<small>material</small></button>
+        <button class="pill" type="button" data-f="4" aria-pressed="false"><i style="--c:#d7b6c7"></i>Sidefat<small>material</small></button>
+      </div>
+    </div>
+    <ol class="flow rv">
+      <li><b>Mâna ta</b>Glisart verifică fotografia înainte de orice trimitere.</li>
+      <li><b>Dorința ta</b>„Bordo ochi de pisică, foarte lucios”.</li>
+      <li><b>Trei variante</b>Exact ce ai cerut, mai festivă, mai discretă.</li>
+      <li><b>Alegerea ta</b>O singură variantă merge la probă.</li>
+      <li><b>Rezultatul</b>Pe unghiile tale, cu pielea ta.</li>
+    </ol>
+  </section>
+
+  <!-- 02 · HABILLE-MOI -->
+  <section class="sec tint" id="studio">
+    <header class="sec-head rv">
+      <p class="micro">02 — Îmbracă-mă</p>
+      <h2>Trei ținute.<br>Tu, <em>în ele</em>.</h2>
+      <p class="lead">O fotografie cu tine din cap până în picioare, o idee sau o cerere liberă: AI-ul propune trei ținute complete, cu tot cu încălțăminte. Alege una și vezi-te purtând-o.</p>
+    </header>
+    <div class="studio-stage" id="studio-stage">
+      <figure class="cmp" data-compare id="studiocmp">
+        <img class="after" src="../assets/demo/after_sweater.webp" srcset="../assets/demo/after_sweater-480.webp 480w, ../assets/demo/after_sweater.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Rezultat real: pulover ciocolatiu și fustă plisată crem, imagine modificată cu AI">
+        <img class="before" src="../assets/demo/her2.webp" srcset="../assets/demo/her2-480.webp 480w, ../assets/demo/her2.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Înainte: fotografia originală">
+        <span class="line" aria-hidden="true"><i></i></span>
+        <span class="tagl a" aria-hidden="true">Înainte</span><span class="tagl b" aria-hidden="true">După</span>
+        <input type="range" min="0" max="100" value="50" step="0.1" aria-label="Compară înainte și după: ținuta aleasă">
+      </figure>
+      <canvas class="gl" id="studiogl" aria-hidden="true"></canvas>
+      <div class="studio-side">
+        <div class="looks" role="group" aria-label="Ținuta afișată">
+          <button class="pill" type="button" data-k="sweater" aria-pressed="true">Pulover ciocolatiu și fustă plisată</button>
+          <button class="pill" type="button" data-k="suit" aria-pressed="false">Costum negru</button>
+          <button class="pill" type="button" data-k="him" aria-pressed="false">Sacou gri melanj</button>
+        </div>
+        <div class="sheet" aria-live="polite"><h3 id="look-name">Pulover ciocolatiu și fustă plisată</h3><p class="q" id="look-q">Ciocolatiul se potrivește cu pruna unghiilor tale.</p></div>
+        <p class="fine">Funcție rezervată adulților. Fiecare imagine poartă mențiunea „Imagine modificată cu AI”.</p>
+      </div>
+      <ul class="pieces" id="pieces" aria-label="Piesele ținutei"></ul>
+    </div>
+  </section>
+
+  <!-- 03 · L’ACCORD -->
+  <section class="sec" id="accord">
+    <header class="sec-head rv">
+      <p class="micro">03 — Asortarea</p>
+      <h2>Unghiile și ținuta ta<br>își <em>răspund</em>.</h2>
+    </header>
+    <div class="modes" role="group" aria-label="Sensul asortării">
+      <button class="pill" type="button" data-mode="a" aria-pressed="true">Asortează cu ținuta</button>
+      <button class="pill" type="button" data-mode="b" aria-pressed="false">Unghiile mele, ținuta mea</button>
+    </div>
+    <div class="graph" id="graph">
+      <div class="plane">
+        <svg class="wires" aria-hidden="true"></svg>
+        <!-- mode A: outfit → detected pieces → three manicures -->
+        <figure class="shot node" data-m="a" data-n="src"><img src="../assets/demo/her-480.webp" width="480" height="643" loading="lazy" alt="Ținuta fotografiată: pulover kaki împletit, cămașă albă, blugi deschiși"><figcaption>Ținuta ta de azi</figcaption></figure>
+        <div class="mid node" data-m="a">
+          <p class="micro">Glisart recunoaște</p>
+          <span class="chip" data-n="c0"><i class="dot" style="--c:#5B5A45"></i>Pulover împletit</span>
+          <span class="chip" data-n="c1"><i class="dot" style="--c:#9DB0C4"></i>Blugi deschiși</span>
+          <span class="chip" data-n="c2"><i class="dot" style="--c:#F2EFE8"></i>Cămașă</span>
+          <p class="q">Kaki și denim deschis: natural și elegant.</p>
+        </div>
+        <div class="props node" data-m="a">
+          <button class="prop" type="button" data-n="p0" data-link="c0"><span class="nail" style="--c:#B5613A"></span><span><small>Ton pe ton</small><b>Teracota caldă</b><span>Continuă kaki-ul puloverului.</span></span></button>
+          <button class="prop" type="button" data-n="p1" data-link="c0 c1 c2"><span class="nail" style="--c:#6A1B2E"></span><span><small>Contrast elegant</small><b>Bordo catifelat</b><span>Un accent profund pe tonuri blânde.</span></span></button>
+          <button class="prop" type="button" data-n="p2" data-link="c2"><span class="nail" style="--c:#E7C1B6"></span><span><small>Discret</small><b>Nude pudrat</b><span>Preia albul cămășii.</span></span></button>
+        </div>
+        <!-- mode B: current nails → proposed outfit → the outfit worn -->
+        <figure class="shot node" data-m="b" data-n="src" hidden><img src="../assets/demo/hand_a-480.webp" width="480" height="643" loading="lazy" alt="Manichiura de acum: prună lucioasă, unghii pătrate"><figcaption>Unghiile tale de acum</figcaption></figure>
+        <div class="mid node" data-m="b" hidden>
+          <p class="micro">Glisart citește</p>
+          <p class="q" style="color:var(--pearl)">O manichiură prună lucioasă, unghii pătrate.</p>
+          <p class="micro" style="margin-top:8px">Și propune</p>
+          <span class="chip" data-n="c0"><i class="dot" style="--c:#4A2C1F"></i>Pulover fin · ciocolatiu</span>
+          <span class="chip" data-n="c1"><i class="dot" style="--c:#EFE3BF"></i>Fustă plisată · crem</span>
+          <span class="chip" data-n="c2"><i class="dot" style="--c:#3B2418"></i>Botine · maro</span>
+        </div>
+        <figure class="shot node" data-m="b" data-n="out" hidden><img src="../assets/demo/after_sweater-480.webp" width="480" height="643" loading="lazy" alt="Rezultat real: ținuta propusă, purtată, imagine modificată cu AI"><figcaption>Ținuta, pe tine · „Ciocolatiul se potrivește cu pruna unghiilor tale.”</figcaption></figure>
+      </div>
+    </div>
+    <p class="fine note">Pastilele de culoare ilustrează propunerile; fotografiile sunt rezultate reale din aplicație.</p>
+  </section>
+
+  <!-- 04 · FICHE SALON -->
+  <section class="sec tint" id="salon">
+    <div class="salon">
+      <header class="sec-head rv">
+        <p class="micro">04 — De la imagine la salon</p>
+        <h2>Fișa pe care manichiurista ta o <em>înțelege</em>.</h2>
+        <p class="lead">Culoare aproximativă, finisaj, formă, lungime, tehnică: Glisart îți rezumă proba într-o imagine de salvat sau de trimis. Fără mărci sau prețuri impuse.</p>
+        <p class="fine">Fișa ajută la descrierea rezultatului dorit. Rezultatul real poate varia în funcție de ojă, lumină și tehnică.</p>
+      </header>
+      <article class="fiche rv" id="fiche" aria-label="Exemplu de fișă pentru salon">
+        <header><img src="../assets/demo/after_nails-480.webp" width="480" height="643" loading="lazy" alt="Look-ul salvat, imagine modificată cu AI"><div><small>Look</small><h3>Bordo catifelat</h3><p><i class="dot" style="--c:#6A1B2E"></i>≈ #6A1B2E · bordo</p></div></header>
+        <dl>
+          <div><dt>Look</dt><dd>Uni</dd></div>
+          <div><dt>Finisaj</dt><dd>Cat-eye magnetic</dd></div>
+          <div><dt>Formă</dt><dd>Rotunjită</dd></div>
+          <div><dt>Lungime</dt><dd>Păstrez lungimea</dd></div>
+          <div><dt>Tehnică</dt><dd>Ojă clasică</dd></div>
+        </dl>
+        <div class="pro"><b>Pentru manichiuristă</b><p>· Pregătește unghia: împinge cuticulele, fără să le tai.</p><p>· Ochi de pisică: ojă magnetică, formează banda de lumină cu magnetul.</p></div>
+        <footer><span>Salvează în Poze</span><span>Trimite fișa</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- 05 · VIE PRIVÉE -->
+  <section class="sec" id="confidentialite">
+    <header class="sec-head rv">
+      <p class="micro">05 — Confidențialitate</p>
+      <h2>Ce pleacă.<br>Ce <em>rămâne</em>.</h2>
+    </header>
+    <div class="ledger rv">
+      <div><small>Pe telefonul tău</small><p>Încadrarea cu camera este analizată pe dispozitiv. Look-urile și ținutele probate sunt salvate acolo.</p></div>
+      <div><small>Pe durata unei probe</small><p>Fotografia ta este trimisă doar cu acordul tău. Este procesată de Google Vertex AI pentru a crea imaginea, fără antrenare pe fotografiile tale.</p></div>
+      <div><small>Pe serverele noastre</small><p>Fotografiile tale nu sunt păstrate. Îți ștergi datele sau contul din Setări.</p></div>
+      <div><small>Pe fiecare imagine</small><p>Imaginile sunt simulări, marcate „Imagine modificată cu AI”, cu un buton „Raportează”.</p></div>
+    </div>
+    <p class="fine note"><a href="../en/privacy.html">Citește politica de confidențialitate (în engleză)</a></p>
+  </section>
+
+  <!-- 06 · TÉLÉCHARGER -->
+  <section class="final">
+    <p class="micro rv">Glisart · iPhone</p>
+    <h2 class="rv">Următorul tău look<br><em>începe aici</em>.</h2>
+    <a class="badge rv" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994"><img src="../assets/app-store-ro.svg" width="127" height="40" alt="Descarcă din App Store"></a>
+    <p class="fine rv">Instalare gratuită · primele idei sunt din partea noastră · apoi credite, fără abonament</p>
+  </section>
+</main>
+
+<footer class="foot2">
+  <a class="brand" href="./">GLISART</a>
+  <nav aria-label="Subsol"><a href="../en/privacy.html">Confidențialitate</a><a href="../en/terms.html">Condiții</a><a href="../en/support.html">Ajutor</a><a href="../en/delete.html">Șterge-mi datele</a><a href="../credits.html">Credite foto</a></nav>
+  <nav class="langs" aria-label="Limbi"><a href="../" lang="fr" hreflang="fr">Français</a><a href="../en/" lang="en" hreflang="en">English</a><a href="../ro/" lang="ro" hreflang="ro" aria-current="page">Română</a><a href="../de/" lang="de" hreflang="de">Deutsch</a><a href="../es/" lang="es" hreflang="es">Español</a><a href="../it/" lang="it" hreflang="it">Italiano</a></nav>
+  <p>© 2026 Glisart</p>
+</footer>
+
+<!-- If the 3D scene could not start (a script did not arrive), show the still composition instead of an empty screen. -->
+<script>setTimeout(function () { var r = document.documentElement; if (!r.classList.contains("ready")) r.classList.add("no-webgl", "ready"); }, 8000);</script>
+<script>window.GLISART_BASE="../";window.GLISART_T={"Glisart · Ongles & styliste IA — votre style, réinventé": "Glisart · Unghii & stilist AI — stilul tău, reinventat", "Essayez une manucure sur votre propre main et voyez-vous dans une nouvelle tenue. Glisart : ongles et styliste IA, sur iPhone.": "Probează o manichiură pe propria ta mână și vezi-te într-o ținută nouă. Glisart: unghii și stilist AI, pe iPhone.", "Glisart · Votre style. Réinventé par l’IA.": "Glisart · Stilul tău. Reinventat de AI.", "Manucure, mode et essayage virtuel. Découvrez votre prochain look avec Glisart.": "Manichiură, modă și probă virtuală. Descoperă-ți următorul look cu Glisart.", "Télécharger": "Descarcă", "Découvrir Glisart": "Descoperă Glisart", "Télécharger dans l’App Store": "Descarcă din App Store", "Avant": "Înainte", "Après": "După", "résultat réel": "rezultat real", "matière": "material", "Chrome": "Crom", "Mat": "Mat", "Nacré": "Sidefat", "Résultat précédent": "Rezultatul anterior", "Résultat suivant": "Rezultatul următor", "Laques de l’atelier": "Lacurile atelierului", "Glisart, accueil": "Glisart, acasă", "Habille-moi": "Îmbracă-mă", "Atelier ongles": "Atelier de unghii", "Assortir à ma tenue": "Asortează cu ținuta", "Mes ongles, ma tenue": "Unghiile mele, ținuta mea", "Tailleur noir": "Costum negru", "Une silhouette nette pour un rendez-vous important.": "O siluetă clară pentru o întâlnire importantă.", "Manteau gris anthracite": "Palton gri antracit", "Pull chocolat & jupe plissée": "Pulover ciocolatiu și fustă plisată", "Le chocolat répond au prune de vos ongles.": "Ciocolatiul se potrivește cu pruna unghiilor tale.", "Blazer gris chiné": "Sacou gri melanj", "Élégant sans cravate, pour un dîner.": "Elegant fără cravată, pentru o cină.", "Bordeaux magnétique": "Bordo magnetic", "Terracotta chaud": "Teracota caldă", "Bordeaux velours": "Bordo catifelat", "Nude poudré": "Nude pudrat", "Prolonge le kaki du pull.": "Continuă kaki-ul puloverului.", "Un accent profond sur les tons doux.": "Un accent profund pe tonuri blânde.", "Reprend le blanc de la chemise.": "Preia albul cămășii.", "Pull ajouré": "Pulover împletit", "Jean clair": "Blugi deschiși", "Chemise": "Cămașă", "Kaki et denim clair : une allure naturelle et chic.": "Kaki și denim deschis: natural și elegant.", "Une manucure prune brillante, ongles carrés.": "O manichiură prună lucioasă, unghii pătrate.", "Exactement votre demande : un œil-de-chat profond et lumineux.": "Exact ce ai cerut: un ochi de pisică profund și luminos.", "Pull fin": "Pulover fin", "Jupe plissée": "Fustă plisată", "Bottines": "Botine", "Blazer ajusté": "Sacou cambrat", "Chemisier en soie": "Bluză de mătase", "Pantalon droit": "Pantaloni drepți", "Escarpins": "Pantofi cu toc", "Blazer": "Sacou", "Jean": "Blugi", "Derbies": "Pantofi derby", "chocolat": "ciocolatiu", "crème": "crem", "marron": "maro", "noir": "negru", "ivoire": "ivoire", "gris chiné": "gri melanj", "blanc": "alb", "brut": "închis", "Pull fin · chocolat": "Pulover fin · ciocolatiu", "Jupe plissée · crème": "Fustă plisată · crem", "Bottines · marron": "Botine · maro", "01 — Atelier ongles": "01 — Atelier de unghii", "Photographiez votre main, décrivez votre envie : Glisart propose trois variantes, puis montre celle que vous choisissez sur vos propres ongles.": "Fotografiază-ți mâna, descrie ce îți dorești: Glisart propune trei variante, apoi o arată pe cea aleasă pe propriile tale unghii.", "Résultat réel de l’application": "Rezultat real din aplicație", "Matière d’atelier · aperçu 3D, pas un résultat de l’application": "Material de atelier · previzualizare 3D, nu un rezultat din aplicație", "Un autre essai réel, sur la même main.": "O altă probă reală, pe aceeași mână.", "Un miroir liquide : la lumière y glisse sans s’arrêter.": "O oglindă lichidă: lumina alunecă pe ea fără să se oprească.", "Un velours sans reflet, qui absorbe la lumière.": "O catifea fără reflexe, care absoarbe lumina.", "Un voile irisé, qui change avec l’angle.": "Un voal irizat, care se schimbă odată cu unghiul.", "Matières de l’atelier": "Materialele atelierului", "Votre main": "Mâna ta", "Glisart vérifie la photo avant tout envoi.": "Glisart verifică fotografia înainte de orice trimitere.", "Votre envie": "Dorința ta", "« Bordeaux œil-de-chat, très brillant ».": "„Bordo ochi de pisică, foarte lucios”.", "Trois variantes": "Trei variante", "Exactement votre demande, plus festive, plus discrète.": "Exact ce ai cerut, mai festivă, mai discretă.", "Votre choix": "Alegerea ta", "Une seule variante part à l’essai.": "O singură variantă merge la probă.", "Le résultat": "Rezultatul", "Sur vos ongles, avec votre peau.": "Pe unghiile tale, cu pielea ta.", "Comparer avant et après : manucure": "Compară înainte și după: manichiură", "Avant : la main photographiée, vernis prune": "Înainte: mâna fotografiată, ojă prună", "Résultat réel : Bordeaux magnétique sur la même main, image modifiée par IA": "Rezultat real: Bordo magnetic pe aceeași mână, imagine modificată cu AI", "Résultat réel : Terracotta chaud sur la même main, image modifiée par IA": "Rezultat real: Teracota caldă pe aceeași mână, imagine modificată cu AI", "02 — Habille-moi": "02 — Îmbracă-mă", "Une photo de vous en pied, une idée ou une demande libre : l’IA propose trois tenues complètes, chaussures comprises. Choisissez-en une et voyez-vous la porter.": "O fotografie cu tine din cap până în picioare, o idee sau o cerere liberă: AI-ul propune trei ținute complete, cu tot cu încălțăminte. Alege una și vezi-te purtând-o.", "Fonction réservée aux adultes. Chaque rendu porte la mention « Image modifiée par IA ».": "Funcție rezervată adulților. Fiecare imagine poartă mențiunea „Imagine modificată cu AI”.", "Comparer avant et après : tenue choisie": "Compară înainte și după: ținuta aleasă", "Tenue affichée": "Ținuta afișată", "Pièces de la tenue": "Piesele ținutei", "Avant : photo d’origine": "Înainte: fotografia originală", "Avant : photo d’origine, pull kaki et jean clair": "Înainte: fotografia originală, pulover kaki și blugi deschiși", "Avant : photo d’origine, surchemise noire et jean clair": "Înainte: fotografia originală, cămașă-jachetă neagră și blugi deschiși", "Résultat réel : pull chocolat et jupe plissée crème, image modifiée par IA": "Rezultat real: pulover ciocolatiu și fustă plisată crem, imagine modificată cu AI", "Résultat réel : tailleur noir, image modifiée par IA": "Rezultat real: costum negru, imagine modificată cu AI", "Résultat réel Habille-moi : tailleur noir, image modifiée par IA": "Rezultat real Îmbracă-mă: costum negru, imagine modificată cu AI", "Résultat réel : blazer gris chiné, chemise blanche et jean brut, image modifiée par IA": "Rezultat real: sacou gri melanj, cămașă albă și blugi închiși, imagine modificată cu AI", "03 — L’accord": "03 — Asortarea", "Sens de l’accord": "Sensul asortării", "Votre tenue du jour": "Ținuta ta de azi", "Glisart reconnaît": "Glisart recunoaște", "Ton sur ton": "Ton pe ton", "Contraste élégant": "Contrast elegant", "Discret": "Discret", "Vos ongles du moment": "Unghiile tale de acum", "Glisart lit": "Glisart citește", "Et propose": "Și propune", "La tenue, sur vous · « Le chocolat répond au prune de vos ongles. »": "Ținuta, pe tine · „Ciocolatiul se potrivește cu pruna unghiilor tale.”", "Les pastilles de couleur illustrent les propositions ; les photos sont des résultats réels de l’application.": "Pastilele de culoare ilustrează propunerile; fotografiile sunt rezultate reale din aplicație.", "La tenue photographiée : pull kaki ajouré, chemise blanche, jean clair": "Ținuta fotografiată: pulover kaki împletit, cămașă albă, blugi deschiși", "La manucure du moment : prune brillante, ongles carrés": "Manichiura de acum: prună lucioasă, unghii pătrate", "Résultat réel : la tenue proposée, portée, image modifiée par IA": "Rezultat real: ținuta propusă, purtată, imagine modificată cu AI", "04 — Du rendu au salon": "04 — De la imagine la salon", "Couleur approchée, fini, forme, longueur, technique : Glisart résume votre essai en une image à enregistrer ou à envoyer. Aucune marque ni prix imposés.": "Culoare aproximativă, finisaj, formă, lungime, tehnică: Glisart îți rezumă proba într-o imagine de salvat sau de trimis. Fără mărci sau prețuri impuse.", "La fiche aide à décrire le résultat souhaité. Le rendu réel peut varier selon le vernis, la lumière et la technique.": "Fișa ajută la descrierea rezultatului dorit. Rezultatul real poate varia în funcție de ojă, lumină și tehnică.", "Exemple de fiche salon": "Exemplu de fișă pentru salon", "Le look enregistré, image modifiée par IA": "Look-ul salvat, imagine modificată cu AI", "≈ #6A1B2E · bordeaux": "≈ #6A1B2E · bordo", "Uni": "Uni", "Fini": "Finisaj", "Cat-eye magnétique": "Cat-eye magnetic", "Forme": "Formă", "Arrondie": "Rotunjită", "Longueur": "Lungime", "Garder ma longueur": "Păstrez lungimea", "Technique": "Tehnică", "Vernis classique": "Ojă clasică", "Pour la prothésiste": "Pentru manichiuristă", "· Préparer l’ongle : repousser les cuticules, sans les couper.": "· Pregătește unghia: împinge cuticulele, fără să le tai.", "· Œil-de-chat : vernis magnétique, former la bande de lumière à l’aimant.": "· Ochi de pisică: ojă magnetică, formează banda de lumină cu magnetul.", "Enregistrer dans Photos": "Salvează în Poze", "Envoyer la fiche": "Trimite fișa", "05 — Vie privée": "05 — Confidențialitate", "Sur votre téléphone": "Pe telefonul tău", "Le cadrage par la caméra est analysé sur l’appareil. Vos looks et vos tenues essayées y sont enregistrés.": "Încadrarea cu camera este analizată pe dispozitiv. Look-urile și ținutele probate sunt salvate acolo.", "Le temps d’un essai": "Pe durata unei probe", "Votre photo n’est envoyée qu’avec votre accord. Elle est traitée par Google Vertex AI pour créer l’image, sans entraînement sur vos photos.": "Fotografia ta este trimisă doar cu acordul tău. Este procesată de Google Vertex AI pentru a crea imaginea, fără antrenare pe fotografiile tale.", "Sur nos serveurs": "Pe serverele noastre", "Vos photos ne sont pas conservées. Vous supprimez vos données ou votre compte depuis les Réglages.": "Fotografiile tale nu sunt păstrate. Îți ștergi datele sau contul din Setări.", "Sur chaque image": "Pe fiecare imagine", "Les rendus sont des simulations, signalées « Image modifiée par IA », avec un bouton « Signaler ».": "Imaginile sunt simulări, marcate „Imagine modificată cu AI”, cu un buton „Raportează”.", "Lire la politique de confidentialité": "Citește politica de confidențialitate (în engleză)", "Glisart · iPhone": "Glisart · iPhone", "Gratuit à l’installation · premières idées offertes · des crédits ensuite, sans abonnement": "Instalare gratuită · primele idei sunt din partea noastră · apoi credite, fără abonament", "Pied de page": "Subsol", "Confidentialité": "Confidențialitate", "Conditions": "Condiții", "Aide": "Ajutor", "Supprimer mes données": "Șterge-mi datele", "Crédits photos": "Credite foto", "Langues": "Limbi"};</script>
+<script type="importmap">{ "imports": { "three": "../assets/three.module.min.js?v=1794479584", "kit": "../assets/kit.js?v=1794479584" } }</script>
+<script type="module" src="../assets/scene.js?v=1794479584"></script>
+<script type="module" src="../assets/sections.js?v=1794479584"></script>
+</body>
+</html>

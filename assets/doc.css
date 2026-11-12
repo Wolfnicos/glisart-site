@@ -1,0 +1,46 @@
+/* Glisart · text pages (privacy, terms, help, delete, credits). Same system as the home page:
+   display = the hero title size · name 19px serif · body 15px · small 13px · fine 12px · micro 10px caps
+   chips 14px corners, cards 16px, hairline borders; obsidian + pearl, rose for emphasis. */
+:root { --t-display: clamp(30px, 4.1vw, 68px); --t-name: 19px; --t-title: clamp(22px, 2vw, 28px); --t-body: 15px; --t-small: 13px; --t-fine: 12px; --r-card: 16px; --r-chip: 14px; --glass: #0c0a0ec7; }
+@media (max-width: 900px) { :root { --t-display: min(9.6vw, 5.4svh); --t-title: 22px; } }
+
+.doc-page { background: radial-gradient(70% 420px at 50% 0, #2a1f29 0, transparent 70%) no-repeat, var(--obsidian); }
+.skip { position: absolute; left: -9999px; } .skip:focus { left: 16px; top: 16px; z-index: 99; background: var(--pearl); color: var(--obsidian); padding: 8px 12px; }
+.doc-page .top { background: linear-gradient(#0c0a0ef2, #0c0a0e00); }
+.doc-nav { display: flex; gap: 22px; }
+.doc-nav a { font-size: var(--t-small); text-decoration: none; color: #d3cfd6; padding: 6px 0; }
+.doc-nav a:hover { color: var(--pearl); }
+
+.doc { max-width: 780px; margin: 0 auto; padding: clamp(110px, 13vw, 170px) var(--gutter) clamp(56px, 7vw, 100px); }
+.doc h1 { font: 400 var(--t-display)/1.04 var(--serif); letter-spacing: -.015em; margin: 14px 0 12px; text-wrap: balance; }
+.doc h2 { font: 400 var(--t-title)/1.2 var(--serif); margin: 44px 0 10px; padding-top: 22px; border-top: 1px solid var(--line); }
+.doc p, .doc li { font-size: var(--t-body); color: #d3cfd6; }
+.doc p { margin: 0 0 14px; }
+.doc ul, .doc ol { padding-left: 20px; margin: 0 0 14px; }
+.doc li { margin-bottom: 6px; }
+.doc li::marker { color: var(--rose); }
+.doc strong { color: var(--pearl); font-weight: 500; }
+.doc a { color: var(--pearl); text-decoration-color: var(--rose); text-underline-offset: 3px; }
+.doc a:hover { color: var(--rose); }
+.doc .muted { color: var(--silver); font-size: var(--t-small); }
+.doc .updated { margin-bottom: 30px; }
+.doc .box { padding: 20px 22px; margin: 22px 0; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--glass); }
+.doc .box p:last-child { margin: 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 16px 0 22px; display: block; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-card); }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: var(--t-small); color: #d3cfd6; min-width: 130px; }
+.doc tr:last-child td { border-bottom: 0; }
+.doc th { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; color: var(--silver); white-space: nowrap; }
+
+.foot2 { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; padding: 32px var(--gutter) 44px; border-top: 1px solid var(--line); }
+.foot2 nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.foot2 nav a { font-size: var(--t-small); text-decoration: none; color: #d3cfd6; padding: 6px 0; }
+.foot2 nav a:hover { color: var(--pearl); }
+.foot2 p { width: 100%; margin: 0; font-size: var(--t-fine); color: var(--silver); }
+.foot2 .brand { margin-right: auto; }
+
+@media (max-width: 800px) {
+  .doc-nav { display: none; }
+  .doc { padding-top: 96px; }
+  .doc h2 { margin-top: 34px; }
+  .foot2 { padding: 26px var(--gutter) 34px; } .foot2 .brand { width: 100%; }
+}

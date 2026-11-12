@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glisart · Nails &amp; AI stylist — your style, reinvented</title>
+<meta name="description" content="Try a manicure on your own hand and see yourself in a new outfit. Glisart: nails and AI stylist, on iPhone.">
+<meta name="theme-color" content="#0c0a0e">
+<link rel="canonical" href="https://glisart.com/en/">
+<link rel="alternate" hreflang="fr" href="https://glisart.com/">
+<link rel="alternate" hreflang="en" href="https://glisart.com/en/">
+<link rel="alternate" hreflang="ro" href="https://glisart.com/ro/">
+<link rel="alternate" hreflang="de" href="https://glisart.com/de/">
+<link rel="alternate" hreflang="es" href="https://glisart.com/es/">
+<link rel="alternate" hreflang="it" href="https://glisart.com/it/">
+<link rel="alternate" hreflang="x-default" href="https://glisart.com/">
+<meta property="og:title" content="Glisart · Your style. Reinvented by AI.">
+<meta property="og:description" content="Try a manicure on your own hand and see yourself in a new outfit. Glisart: nails and AI stylist, on iPhone.">
+<meta property="og:image" content="https://glisart.com/assets/demo/after_suit.webp">
+<meta property="og:image:width" content="896">
+<meta property="og:image:height" content="1200">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glisart.com/en/">
+<meta property="og:site_name" content="Glisart">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6831685994">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"Glisart","alternateName":"Glisart: Ongles & Styliste IA","url":"https://glisart.com/","image":"https://glisart.com/assets/demo/after_suit.webp","description":"Try a manicure on your own hand and see yourself in a new outfit. Glisart: nails and AI stylist, on iPhone.","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","installUrl":"https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
+</script>
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/BodoniModa-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="../assets/three.module.min.js?v=1794479584">
+<link rel="stylesheet" href="../assets/base.css?v=1794479584">
+<link rel="stylesheet" href="../assets/style.css?v=1794479584">
+<link rel="stylesheet" href="../assets/sections.css?v=1794479584">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./" aria-label="Glisart, home">GLISART</a>
+  <a class="get" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994">Download</a>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="stage">
+      <div class="room" aria-hidden="true"></div>
+      <canvas id="scene" aria-hidden="true"></canvas>
+      <div class="fallback"><img src="../assets/demo/after_suit.webp" width="896" height="1200" alt="Real Dress me result: black suit, AI-modified image"></div>
+
+      <h1 class="title">Your style. <em>Reinvented</em> by AI.</h1>
+
+      <!-- The atelier's controls are real buttons: turn the ring, switch Avant / Après, pick a lacquer. -->
+      <div class="deck ui">
+        <button class="arrow" id="prev" type="button" aria-label="Previous result">←</button>
+        <div class="now" aria-live="polite"><p class="micro" id="kind">Dress me</p><p class="name" id="name">Black suit</p></div>
+        <button class="arrow" id="next" type="button" aria-label="Next result">→</button>
+        <button class="flip" id="flip" type="button" aria-pressed="true"><span>Before</span><i></i><span>After</span></button>
+      </div>
+      <div class="lab ui" role="group" aria-label="Atelier lacquers">
+        <button type="button" data-s="0" data-result="after_nails" aria-pressed="false"><i style="--c:#6A1B2E"></i>Magnetic burgundy<small>real result</small></button>
+        <button type="button" data-s="1" data-result="after_nails2" aria-pressed="false"><i style="--c:#8A3B1E"></i>Warm terracotta<small>real result</small></button>
+        <button type="button" data-s="2" aria-pressed="false"><i style="--c:#c9c9d2"></i>Chrome<small>material</small></button>
+        <button type="button" data-s="3" aria-pressed="false"><i style="--c:#3a2a33"></i>Matte<small>material</small></button>
+        <button type="button" data-s="4" aria-pressed="false"><i style="--c:#d7b6c7"></i>Pearl<small>material</small></button>
+      </div>
+
+      <div class="foot ui">
+        <p class="lead">Manicure, fashion and virtual try-on. Discover your next look with Glisart.</p>
+        <div class="actions">
+          <a class="btn" href="#atelier">Discover Glisart</a>
+          <a class="badge" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994"><img src="../assets/app-store-en.svg" width="127" height="40" alt="Download on the App Store"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 01 · ATELIER ONGLES -->
+  <section class="sec" id="atelier">
+    <header class="sec-head rv">
+      <p class="micro">01 — Nail atelier</p>
+      <h2>Five materials.<br><em>Your</em> hand.</h2>
+      <p class="lead">Photograph your hand, describe what you want: Glisart suggests three variations, then shows the one you choose on your own nails.</p>
+    </header>
+    <div class="lab-stage">
+      <figure class="cmp" data-compare id="labcmp">
+        <img class="after" src="../assets/demo/after_nails.webp" srcset="../assets/demo/after_nails-480.webp 480w, ../assets/demo/after_nails.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Real result: Magnetic burgundy on the same hand, AI-modified image">
+        <img class="before" src="../assets/demo/hand_a.webp" srcset="../assets/demo/hand_a-480.webp 480w, ../assets/demo/hand_a.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Before: the photographed hand, plum polish">
+        <span class="line" aria-hidden="true"><i></i></span>
+        <span class="tagl a" aria-hidden="true">Before</span><span class="tagl b" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="38" step="0.1" aria-label="Compare before and after: manicure">
+      </figure>
+      <canvas class="gl" id="labgl" aria-hidden="true"></canvas>
+      <div class="fin-info" aria-live="polite">
+        <p class="micro real" id="fin-kind">Real result from the app</p>
+        <h3 id="fin-name">Magnetic burgundy</h3>
+        <p id="fin-text">Exactly what you asked: a deep, luminous cat-eye.</p>
+      </div>
+      <div class="finishes" role="group" aria-label="Atelier materials">
+        <button class="pill" type="button" data-f="0" aria-pressed="true"><i style="--c:#6A1B2E"></i>Magnetic burgundy<small>real result</small></button>
+        <button class="pill" type="button" data-f="1" aria-pressed="false"><i style="--c:#8A3B1E"></i>Warm terracotta<small>real result</small></button>
+        <button class="pill" type="button" data-f="2" aria-pressed="false"><i style="--c:#c9c9d2"></i>Chrome<small>material</small></button>
+        <button class="pill" type="button" data-f="3" aria-pressed="false"><i style="--c:#3a2a33"></i>Matte<small>material</small></button>
+        <button class="pill" type="button" data-f="4" aria-pressed="false"><i style="--c:#d7b6c7"></i>Pearl<small>material</small></button>
+      </div>
+    </div>
+    <ol class="flow rv">
+      <li><b>Your hand</b>Glisart checks the photo before anything is sent.</li>
+      <li><b>Your wish</b>“Burgundy cat-eye, very glossy”.</li>
+      <li><b>Three variations</b>Exactly what you asked, more festive, more discreet.</li>
+      <li><b>Your choice</b>Only one variation goes to the try-on.</li>
+      <li><b>The result</b>On your nails, with your skin.</li>
+    </ol>
+  </section>
+
+  <!-- 02 · HABILLE-MOI -->
+  <section class="sec tint" id="studio">
+    <header class="sec-head rv">
+      <p class="micro">02 — Dress me</p>
+      <h2>Three outfits.<br>You, <em>in them</em>.</h2>
+      <p class="lead">A full-length photo of you, an idea or a free request: the AI suggests three complete outfits, shoes included. Pick one and see yourself wearing it.</p>
+    </header>
+    <div class="studio-stage" id="studio-stage">
+      <figure class="cmp" data-compare id="studiocmp">
+        <img class="after" src="../assets/demo/after_sweater.webp" srcset="../assets/demo/after_sweater-480.webp 480w, ../assets/demo/after_sweater.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Real result: chocolate jumper and cream pleated skirt, AI-modified image">
+        <img class="before" src="../assets/demo/her2.webp" srcset="../assets/demo/her2-480.webp 480w, ../assets/demo/her2.webp 896w" sizes="(max-width: 900px) 80vw, 34vw" width="896" height="1200" loading="lazy" alt="Before: original photo">
+        <span class="line" aria-hidden="true"><i></i></span>
+        <span class="tagl a" aria-hidden="true">Before</span><span class="tagl b" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="50" step="0.1" aria-label="Compare before and after: chosen outfit">
+      </figure>
+      <canvas class="gl" id="studiogl" aria-hidden="true"></canvas>
+      <div class="studio-side">
+        <div class="looks" role="group" aria-label="Outfit shown">
+          <button class="pill" type="button" data-k="sweater" aria-pressed="true">Chocolate jumper &amp; pleated skirt</button>
+          <button class="pill" type="button" data-k="suit" aria-pressed="false">Black suit</button>
+          <button class="pill" type="button" data-k="him" aria-pressed="false">Grey tweed blazer</button>
+        </div>
+        <div class="sheet" aria-live="polite"><h3 id="look-name">Chocolate jumper &amp; pleated skirt</h3><p class="q" id="look-q">Chocolate answers the plum of your nails.</p></div>
+        <p class="fine">Feature reserved for adults. Every render carries the label “AI-modified image”.</p>
+      </div>
+      <ul class="pieces" id="pieces" aria-label="Pieces of the outfit"></ul>
+    </div>
+  </section>
+
+  <!-- 03 · L’ACCORD -->
+  <section class="sec" id="accord">
+    <header class="sec-head rv">
+      <p class="micro">03 — The match</p>
+      <h2>Your nails and your outfit<br><em>answer</em> each other.</h2>
+    </header>
+    <div class="modes" role="group" aria-label="Direction of the match">
+      <button class="pill" type="button" data-mode="a" aria-pressed="true">Match my outfit</button>
+      <button class="pill" type="button" data-mode="b" aria-pressed="false">My nails, my outfit</button>
+    </div>
+    <div class="graph" id="graph">
+      <div class="plane">
+        <svg class="wires" aria-hidden="true"></svg>
+        <!-- mode A: outfit → detected pieces → three manicures -->
+        <figure class="shot node" data-m="a" data-n="src"><img src="../assets/demo/her-480.webp" width="480" height="643" loading="lazy" alt="The photographed outfit: khaki open-knit jumper, white shirt, light jeans"><figcaption>Your outfit of the day</figcaption></figure>
+        <div class="mid node" data-m="a">
+          <p class="micro">Glisart recognises</p>
+          <span class="chip" data-n="c0"><i class="dot" style="--c:#5B5A45"></i>Open-knit jumper</span>
+          <span class="chip" data-n="c1"><i class="dot" style="--c:#9DB0C4"></i>Light jeans</span>
+          <span class="chip" data-n="c2"><i class="dot" style="--c:#F2EFE8"></i>Shirt</span>
+          <p class="q">Khaki and light denim: natural and chic.</p>
+        </div>
+        <div class="props node" data-m="a">
+          <button class="prop" type="button" data-n="p0" data-link="c0"><span class="nail" style="--c:#B5613A"></span><span><small>Tone on tone</small><b>Warm terracotta</b><span>Echoes the khaki jumper.</span></span></button>
+          <button class="prop" type="button" data-n="p1" data-link="c0 c1 c2"><span class="nail" style="--c:#6A1B2E"></span><span><small>Elegant contrast</small><b>Velvet burgundy</b><span>A deep accent on soft tones.</span></span></button>
+          <button class="prop" type="button" data-n="p2" data-link="c2"><span class="nail" style="--c:#E7C1B6"></span><span><small>Discreet</small><b>Powder nude</b><span>Picks up the white shirt.</span></span></button>
+        </div>
+        <!-- mode B: current nails → proposed outfit → the outfit worn -->
+        <figure class="shot node" data-m="b" data-n="src" hidden><img src="../assets/demo/hand_a-480.webp" width="480" height="643" loading="lazy" alt="The current manicure: glossy plum, square nails"><figcaption>Your nails right now</figcaption></figure>
+        <div class="mid node" data-m="b" hidden>
+          <p class="micro">Glisart reads</p>
+          <p class="q" style="color:var(--pearl)">A glossy plum manicure, square nails.</p>
+          <p class="micro" style="margin-top:8px">And suggests</p>
+          <span class="chip" data-n="c0"><i class="dot" style="--c:#4A2C1F"></i>Fine jumper · chocolate</span>
+          <span class="chip" data-n="c1"><i class="dot" style="--c:#EFE3BF"></i>Pleated skirt · cream</span>
+          <span class="chip" data-n="c2"><i class="dot" style="--c:#3B2418"></i>Ankle boots · brown</span>
+        </div>
+        <figure class="shot node" data-m="b" data-n="out" hidden><img src="../assets/demo/after_sweater-480.webp" width="480" height="643" loading="lazy" alt="Real result: the suggested outfit, worn, AI-modified image"><figcaption>The outfit, on you · “Chocolate answers the plum of your nails.”</figcaption></figure>
+      </div>
+    </div>
+    <p class="fine note">The colour swatches illustrate the suggestions; the photos are real results from the app.</p>
+  </section>
+
+  <!-- 04 · FICHE SALON -->
+  <section class="sec tint" id="salon">
+    <div class="salon">
+      <header class="sec-head rv">
+        <p class="micro">04 — From render to salon</p>
+        <h2>The card your nail technician <em>understands</em>.</h2>
+        <p class="lead">Approximate colour, finish, shape, length, technique: Glisart sums up your try-on in one image to save or send. No brand or price imposed.</p>
+        <p class="fine">The card helps describe the result you want. The real result may vary with the polish, the light and the technique.</p>
+      </header>
+      <article class="fiche rv" id="fiche" aria-label="Example of a salon card">
+        <header><img src="../assets/demo/after_nails-480.webp" width="480" height="643" loading="lazy" alt="The saved look, AI-modified image"><div><small>Look</small><h3>Velvet burgundy</h3><p><i class="dot" style="--c:#6A1B2E"></i>≈ #6A1B2E · burgundy</p></div></header>
+        <dl>
+          <div><dt>Look</dt><dd>Solid</dd></div>
+          <div><dt>Finish</dt><dd>Magnetic cat-eye</dd></div>
+          <div><dt>Shape</dt><dd>Round</dd></div>
+          <div><dt>Length</dt><dd>Keep my length</dd></div>
+          <div><dt>Technique</dt><dd>Classic polish</dd></div>
+        </dl>
+        <div class="pro"><b>For the nail technician</b><p>· Prepare the nail: push back the cuticles, without cutting them.</p><p>· Cat-eye: magnetic polish, shape the band of light with the magnet.</p></div>
+        <footer><span>Save to Photos</span><span>Send the card</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- 05 · VIE PRIVÉE -->
+  <section class="sec" id="confidentialite">
+    <header class="sec-head rv">
+      <p class="micro">05 — Privacy</p>
+      <h2>What leaves.<br>What <em>stays</em>.</h2>
+    </header>
+    <div class="ledger rv">
+      <div><small>On your phone</small><p>Camera framing is analysed on the device. Your looks and the outfits you tried are saved there.</p></div>
+      <div><small>During a try-on</small><p>Your photo is only sent with your consent. It is processed by Google Vertex AI to create the image, with no training on your photos.</p></div>
+      <div><small>On our servers</small><p>Your photos are not kept. You delete your data or your account from Settings.</p></div>
+      <div><small>On every image</small><p>Renders are simulations, labelled “AI-modified image”, with a “Report” button.</p></div>
+    </div>
+    <p class="fine note"><a href="privacy.html">Read the privacy policy</a></p>
+  </section>
+
+  <!-- 06 · TÉLÉCHARGER -->
+  <section class="final">
+    <p class="micro rv">Glisart · iPhone</p>
+    <h2 class="rv">Your next look<br><em>starts here</em>.</h2>
+    <a class="badge rv" href="https://apps.apple.com/fr/app/glisart-ongles-styliste-ia/id6831685994"><img src="../assets/app-store-en.svg" width="127" height="40" alt="Download on the App Store"></a>
+    <p class="fine rv">Free to install · first ideas on us · credits afterwards, no subscription</p>
+  </section>
+</main>
+
+<footer class="foot2">
+  <a class="brand" href="./">GLISART</a>
+  <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Help</a><a href="delete.html">Delete my data</a><a href="../credits.html">Photo credits</a></nav>
+  <nav class="langs" aria-label="Languages"><a href="../" lang="fr" hreflang="fr">Français</a><a href="../en/" lang="en" hreflang="en" aria-current="page">English</a><a href="../ro/" lang="ro" hreflang="ro">Română</a><a href="../de/" lang="de" hreflang="de">Deutsch</a><a href="../es/" lang="es" hreflang="es">Español</a><a href="../it/" lang="it" hreflang="it">Italiano</a></nav>
+  <p>© 2026 Glisart</p>
+</footer>
+
+<!-- If the 3D scene could not start (a script did not arrive), show the still composition instead of an empty screen. -->
+<script>setTimeout(function () { var r = document.documentElement; if (!r.classList.contains("ready")) r.classList.add("no-webgl", "ready"); }, 8000);</script>
+<script>window.GLISART_BASE="../";window.GLISART_T={"Glisart · Ongles & styliste IA — votre style, réinventé": "Glisart · Nails & AI stylist — your style, reinvented", "Essayez une manucure sur votre propre main et voyez-vous dans une nouvelle tenue. Glisart : ongles et styliste IA, sur iPhone.": "Try a manicure on your own hand and see yourself in a new outfit. Glisart: nails and AI stylist, on iPhone.", "Glisart · Votre style. Réinventé par l’IA.": "Glisart · Your style. Reinvented by AI.", "Manucure, mode et essayage virtuel. Découvrez votre prochain look avec Glisart.": "Manicure, fashion and virtual try-on. Discover your next look with Glisart.", "Télécharger": "Download", "Découvrir Glisart": "Discover Glisart", "Télécharger dans l’App Store": "Download on the App Store", "Avant": "Before", "Après": "After", "résultat réel": "real result", "matière": "material", "Chrome": "Chrome", "Mat": "Matte", "Nacré": "Pearl", "Résultat précédent": "Previous result", "Résultat suivant": "Next result", "Laques de l’atelier": "Atelier lacquers", "Glisart, accueil": "Glisart, home", "Habille-moi": "Dress me", "Atelier ongles": "Nail atelier", "Assortir à ma tenue": "Match my outfit", "Mes ongles, ma tenue": "My nails, my outfit", "Tailleur noir": "Black suit", "Une silhouette nette pour un rendez-vous important.": "A sharp silhouette for an important meeting.", "Manteau gris anthracite": "Charcoal grey coat", "Pull chocolat & jupe plissée": "Chocolate jumper & pleated skirt", "Le chocolat répond au prune de vos ongles.": "Chocolate answers the plum of your nails.", "Blazer gris chiné": "Grey tweed blazer", "Élégant sans cravate, pour un dîner.": "Smart without a tie, for a dinner.", "Bordeaux magnétique": "Magnetic burgundy", "Terracotta chaud": "Warm terracotta", "Bordeaux velours": "Velvet burgundy", "Nude poudré": "Powder nude", "Prolonge le kaki du pull.": "Echoes the khaki jumper.", "Un accent profond sur les tons doux.": "A deep accent on soft tones.", "Reprend le blanc de la chemise.": "Picks up the white shirt.", "Pull ajouré": "Open-knit jumper", "Jean clair": "Light jeans", "Chemise": "Shirt", "Kaki et denim clair : une allure naturelle et chic.": "Khaki and light denim: natural and chic.", "Une manucure prune brillante, ongles carrés.": "A glossy plum manicure, square nails.", "Exactement votre demande : un œil-de-chat profond et lumineux.": "Exactly what you asked: a deep, luminous cat-eye.", "Pull fin": "Fine jumper", "Jupe plissée": "Pleated skirt", "Bottines": "Ankle boots", "Blazer ajusté": "Tailored blazer", "Chemisier en soie": "Silk blouse", "Pantalon droit": "Straight trousers", "Escarpins": "Pumps", "Blazer": "Blazer", "Jean": "Jeans", "Derbies": "Derbies", "chocolat": "chocolate", "crème": "cream", "marron": "brown", "noir": "black", "ivoire": "ivory", "gris chiné": "grey tweed", "blanc": "white", "brut": "raw denim", "Pull fin · chocolat": "Fine jumper · chocolate", "Jupe plissée · crème": "Pleated skirt · cream", "Bottines · marron": "Ankle boots · brown", "01 — Atelier ongles": "01 — Nail atelier", "Photographiez votre main, décrivez votre envie : Glisart propose trois variantes, puis montre celle que vous choisissez sur vos propres ongles.": "Photograph your hand, describe what you want: Glisart suggests three variations, then shows the one you choose on your own nails.", "Résultat réel de l’application": "Real result from the app", "Matière d’atelier · aperçu 3D, pas un résultat de l’application": "Atelier material · 3D preview, not a result from the app", "Un autre essai réel, sur la même main.": "Another real try-on, on the same hand.", "Un miroir liquide : la lumière y glisse sans s’arrêter.": "A liquid mirror: light glides across it without stopping.", "Un velours sans reflet, qui absorbe la lumière.": "A velvet with no reflection, absorbing the light.", "Un voile irisé, qui change avec l’angle.": "An iridescent veil that shifts with the angle.", "Matières de l’atelier": "Atelier materials", "Votre main": "Your hand", "Glisart vérifie la photo avant tout envoi.": "Glisart checks the photo before anything is sent.", "Votre envie": "Your wish", "« Bordeaux œil-de-chat, très brillant ».": "“Burgundy cat-eye, very glossy”.", "Trois variantes": "Three variations", "Exactement votre demande, plus festive, plus discrète.": "Exactly what you asked, more festive, more discreet.", "Votre choix": "Your choice", "Une seule variante part à l’essai.": "Only one variation goes to the try-on.", "Le résultat": "The result", "Sur vos ongles, avec votre peau.": "On your nails, with your skin.", "Comparer avant et après : manucure": "Compare before and after: manicure", "Avant : la main photographiée, vernis prune": "Before: the photographed hand, plum polish", "Résultat réel : Bordeaux magnétique sur la même main, image modifiée par IA": "Real result: Magnetic burgundy on the same hand, AI-modified image", "Résultat réel : Terracotta chaud sur la même main, image modifiée par IA": "Real result: Warm terracotta on the same hand, AI-modified image", "02 — Habille-moi": "02 — Dress me", "Une photo de vous en pied, une idée ou une demande libre : l’IA propose trois tenues complètes, chaussures comprises. Choisissez-en une et voyez-vous la porter.": "A full-length photo of you, an idea or a free request: the AI suggests three complete outfits, shoes included. Pick one and see yourself wearing it.", "Fonction réservée aux adultes. Chaque rendu porte la mention « Image modifiée par IA ».": "Feature reserved for adults. Every render carries the label “AI-modified image”.", "Comparer avant et après : tenue choisie": "Compare before and after: chosen outfit", "Tenue affichée": "Outfit shown", "Pièces de la tenue": "Pieces of the outfit", "Avant : photo d’origine": "Before: original photo", "Avant : photo d’origine, pull kaki et jean clair": "Before: original photo, khaki jumper and light jeans", "Avant : photo d’origine, surchemise noire et jean clair": "Before: original photo, black overshirt and light jeans", "Résultat réel : pull chocolat et jupe plissée crème, image modifiée par IA": "Real result: chocolate jumper and cream pleated skirt, AI-modified image", "Résultat réel : tailleur noir, image modifiée par IA": "Real result: black suit, AI-modified image", "Résultat réel Habille-moi : tailleur noir, image modifiée par IA": "Real Dress me result: black suit, AI-modified image", "Résultat réel : blazer gris chiné, chemise blanche et jean brut, image modifiée par IA": "Real result: grey tweed blazer, white shirt and raw jeans, AI-modified image", "03 — L’accord": "03 — The match", "Sens de l’accord": "Direction of the match", "Votre tenue du jour": "Your outfit of the day", "Glisart reconnaît": "Glisart recognises", "Ton sur ton": "Tone on tone", "Contraste élégant": "Elegant contrast", "Discret": "Discreet", "Vos ongles du moment": "Your nails right now", "Glisart lit": "Glisart reads", "Et propose": "And suggests", "La tenue, sur vous · « Le chocolat répond au prune de vos ongles. »": "The outfit, on you · “Chocolate answers the plum of your nails.”", "Les pastilles de couleur illustrent les propositions ; les photos sont des résultats réels de l’application.": "The colour swatches illustrate the suggestions; the photos are real results from the app.", "La tenue photographiée : pull kaki ajouré, chemise blanche, jean clair": "The photographed outfit: khaki open-knit jumper, white shirt, light jeans", "La manucure du moment : prune brillante, ongles carrés": "The current manicure: glossy plum, square nails", "Résultat réel : la tenue proposée, portée, image modifiée par IA": "Real result: the suggested outfit, worn, AI-modified image", "04 — Du rendu au salon": "04 — From render to salon", "Couleur approchée, fini, forme, longueur, technique : Glisart résume votre essai en une image à enregistrer ou à envoyer. Aucune marque ni prix imposés.": "Approximate colour, finish, shape, length, technique: Glisart sums up your try-on in one image to save or send. No brand or price imposed.", "La fiche aide à décrire le résultat souhaité. Le rendu réel peut varier selon le vernis, la lumière et la technique.": "The card helps describe the result you want. The real result may vary with the polish, the light and the technique.", "Exemple de fiche salon": "Example of a salon card", "Le look enregistré, image modifiée par IA": "The saved look, AI-modified image", "≈ #6A1B2E · bordeaux": "≈ #6A1B2E · burgundy", "Uni": "Solid", "Fini": "Finish", "Cat-eye magnétique": "Magnetic cat-eye", "Forme": "Shape", "Arrondie": "Round", "Longueur": "Length", "Garder ma longueur": "Keep my length", "Technique": "Technique", "Vernis classique": "Classic polish", "Pour la prothésiste": "For the nail technician", "· Préparer l’ongle : repousser les cuticules, sans les couper.": "· Prepare the nail: push back the cuticles, without cutting them.", "· Œil-de-chat : vernis magnétique, former la bande de lumière à l’aimant.": "· Cat-eye: magnetic polish, shape the band of light with the magnet.", "Enregistrer dans Photos": "Save to Photos", "Envoyer la fiche": "Send the card", "05 — Vie privée": "05 — Privacy", "Sur votre téléphone": "On your phone", "Le cadrage par la caméra est analysé sur l’appareil. Vos looks et vos tenues essayées y sont enregistrés.": "Camera framing is analysed on the device. Your looks and the outfits you tried are saved there.", "Le temps d’un essai": "During a try-on", "Votre photo n’est envoyée qu’avec votre accord. Elle est traitée par Google Vertex AI pour créer l’image, sans entraînement sur vos photos.": "Your photo is only sent with your consent. It is processed by Google Vertex AI to create the image, with no training on your photos.", "Sur nos serveurs": "On our servers", "Vos photos ne sont pas conservées. Vous supprimez vos données ou votre compte depuis les Réglages.": "Your photos are not kept. You delete your data or your account from Settings.", "Sur chaque image": "On every image", "Les rendus sont des simulations, signalées « Image modifiée par IA », avec un bouton « Signaler ».": "Renders are simulations, labelled “AI-modified image”, with a “Report” button.", "Lire la politique de confidentialité": "Read the privacy policy", "Glisart · iPhone": "Glisart · iPhone", "Gratuit à l’installation · premières idées offertes · des crédits ensuite, sans abonnement": "Free to install · first ideas on us · credits afterwards, no subscription", "Pied de page": "Footer", "Confidentialité": "Privacy", "Conditions": "Terms", "Aide": "Help", "Supprimer mes données": "Delete my data", "Crédits photos": "Photo credits", "Langues": "Languages"};</script>
+<script type="importmap">{ "imports": { "three": "../assets/three.module.min.js?v=1794479584", "kit": "../assets/kit.js?v=1794479584" } }</script>
+<script type="module" src="../assets/scene.js?v=1794479584"></script>
+<script type="module" src="../assets/sections.js?v=1794479584"></script>
+</body>
+</html>
