@@ -117,8 +117,9 @@ const FIN = [
     ];
     const nails = mats.map((m, i) => { const n = new THREE.Mesh(geo, m); n.userData = { i, lift: 0 }; scene.add(n); return n; });
     const STEP = Math.PI * 2 / 5;
-    let rot = 0, goal = 0, R = 3.1, drop = .9, y0 = -.3, k0 = 1, t0 = 0, sx = 0, sy = 0;
+    let rot = 0, goal = 0, R = 3.1, drop = .9, y0 = -.3, k0 = 1, t0 = 0, sx = 0, sy = 0, dirty = true, lastSig = "", beat = 0;
     sized(r, canvas, camera, (w, h) => {
+      dirty = true;
       const phone = innerWidth <= 900;
       R = phone ? Math.min(1.5, 1.05 * (w / h) * 1.9) : Math.min(3.3, (w / h) * 1.72);
       drop = phone ? .55 : 1.2; y0 = phone ? -1.15 : -.28; k0 = phone ? .62 : .8;
@@ -139,6 +140,11 @@ const FIN = [
         n.scale.setScalar(k0 * (1 + u.lift * .18 + u.pulse * .12));
       });
       scene.environmentRotation.y = sx * -.6 + rot * .3;
+      // draw only when something changed (the scene is still most of the time); one safety frame per second
+      const sig = rot.toFixed(4) + sel + nails.map((n) => n.userData.lift.toFixed(3) + (n.userData.pulse || 0).toFixed(3)).join("");
+      beat += dt;
+      if (sig === lastSig && !dirty && beat < 1) return;
+      lastSig = sig; dirty = false; beat = 0;
       r.render(scene, camera);
     });
   });
@@ -196,9 +202,9 @@ const LOOKS = {
       if (p) { m.material.color.set(p[2]); m.material.sheenColor = new THREE.Color(p[2]).lerp(new THREE.Color(0xffffff), .35); }
     });
     paint(cur);
-    let W = 1, H = 1, phone = false, phase = 1, dir = 1, pending = null, sx = 0, sy = 0, t0 = 0, swing = 0, colW = 1, count = LOOKS[cur].pieces.length;
+    let W = 1, H = 1, phone = false, phase = 1, dir = 1, pending = null, sx = 0, sy = 0, t0 = 0, swing = 0, colW = 1, count = LOOKS[cur].pieces.length, dirty = true, lastSig = "", beat = 0;
     sized(r, canvas, camera, (w, h) => {
-      W = w; H = h; phone = innerWidth <= 900; stage.classList.toggle("pinned", !phone);
+      dirty = true; W = w; H = h; phone = innerWidth <= 900; stage.classList.toggle("pinned", !phone);
       camera.position.set(0, 0, phone ? Math.max(3.1, 4.6 / (2 * Math.tan(Math.PI / 12) * (w / h))) : 10);
       const half = Math.tan(Math.PI / 12) * camera.position.z * (w / h);            // half the visible width at z = 0
       colW = half * .5;
@@ -214,6 +220,11 @@ const LOOKS = {
       phase = clamp(phase + dir * dt * (calm ? 99 : 2.4));
       if (dir < 0 && phase === 0 && pending) { paint(pending.k); count = LOOKS[pending.k].pieces.length; pending.mid(); pending = null; dir = 1; stage.classList.remove("changing"); }
       swing *= Math.exp(-dt * 1.6);
+      // draw only when something changed (the scene is still most of the time); one safety frame per second
+      const sig = phase.toFixed(4) + swing.toFixed(3) + cur + count;
+      beat += dt;
+      if (sig === lastSig && !dirty && beat < 1) return;
+      lastSig = sig; dirty = false; beat = 0;
       camera.position.x = sx * .3 + Math.sin(swing * Math.PI) * .5; camera.position.y = sy * -.18; camera.lookAt(0, 0, 0);
       const labels = stage.classList.contains("pinned") ? list.children : [];
       tiles.forEach((m, i) => {

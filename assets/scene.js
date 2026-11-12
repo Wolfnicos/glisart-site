@@ -62,6 +62,7 @@ function start() {
   const nails = FINISH.map((m, i) => { const n = new THREE.Mesh(nailGeo, m); n.userData = { i, lift: 0 }; lab.add(n); return n; });
 
   // ── State ──
+  let dirty = true, lastSig = "", beat = 0;
   let angle = -2 * STEP, vel = 0, goalIdx = 2, dragging = false, labAngle = 0, labGoal = 0, picked = -1;
   const idx = () => clamp(Math.round(-angle / STEP), 0, N - 1);
   const labBtns = [...document.querySelectorAll(".lab button")];
@@ -110,10 +111,10 @@ function start() {
   addEventListener("pointercancel", () => { down = null; dragging = false; root.classList.remove("dragging"); });
 
   let phone = false, camZ = 1.5;
-  onResize(kit, camera, (w, h, m) => { phone = m; camera.fov = m ? 60 : 47; camZ = m ? 2.2 : Math.max(1.25, 1.25 + (1.5 - w / h) * 2.4); });
+  onResize(kit, camera, (w, h, m) => { dirty = true; phone = m; camera.fov = m ? 60 : 47; camZ = m ? 2.2 : Math.max(1.25, 1.25 + (1.5 - w / h) * 2.4); });
 
   const io = inputs(hero);
-  let shown = -1;
+  let shown = -1, drawn = 0;
   const stats = run(stage, (dt, now) => {
     if (t0 < 0) return;
     const t = calm ? 99 : now - t0;
@@ -150,9 +151,14 @@ function start() {
     scene.environmentRotation.y = io.sx * -.6 + angle * .5;
     floor.rotation.y = angle * .5;
 
+    // draw only when something changed (the scene is still most of the time); one safety frame per second
+    const sig = angle.toFixed(4) + labAngle.toFixed(4) + picked + walls.map((w) => w.userData.mix.toFixed(3) + (w.userData.pulse || 0).toFixed(3)).join("") + nails.map((n) => n.userData.lift.toFixed(3) + (n.userData.pulse || 0).toFixed(3)).join("");
+    beat += dt;
+    if (sig === lastSig && !dirty && beat < 1) return;
+    lastSig = sig; dirty = false; beat = 0; drawn++;
     stage.style.setProperty("--p", p.toFixed(4));
     renderer.render(scene, camera);
   });
   describe();
-  window.__glisart = { stats, renderer, walls, nails, go, flip, pickNail, get index() { return idx(); } };
+  window.__glisart = { stats, renderer, walls, nails, go, flip, pickNail, get index() { return idx(); }, get drawn() { return drawn; } };
 }

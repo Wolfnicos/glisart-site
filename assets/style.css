@@ -31,7 +31,8 @@
 .foot > * { pointer-events: auto; }
 .foot .lead { max-width: 17em; font-size: 13.5px; }
 
-@media (max-width: 1180px) { .foot .lead { display: none; } .foot { justify-content: flex-end; } .lab { left: var(--gutter); transform: none; } .lab small { display: none; } .lab button { padding: 7px 11px 7px 8px; } }
+@media (min-width: 801px) and (max-width: 980px) { .foot .btn { display: none; } .lab { max-width: calc(100vw - 250px); overflow-x: auto; scrollbar-width: none; } }   /* tablets: the store badge alone, so nothing collides */
+@media (max-width: 1440px) { .foot .lead { display: none; } .foot { justify-content: flex-end; } .lab { left: var(--gutter); transform: none; } .lab small { display: none; } .lab button { padding: 7px 11px 7px 8px; } }
 @media (max-width: 800px) {
   .switch { display: none; }
   .title { top: 70px; font-size: min(9.6vw, 5.4svh); }
